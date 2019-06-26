@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FileItem } from '../../models/file-item';
+import { ImageUploadService } from '../../services/image-upload.service';
 
 @Component({
   selector: 'app-upload',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadComponent implements OnInit {
 
-  constructor() { }
+  files: FileItem[] = [];
+
+
+
+  constructor(public imageUploadService: ImageUploadService) { }
 
   ngOnInit() {
+  }
+
+  uploadImages() {
+  this.imageUploadService.uploadImagesFirebase(this.files); 
   }
 
 }

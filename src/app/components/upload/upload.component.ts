@@ -10,7 +10,7 @@ import { ImageUploadService } from '../../services/image-upload.service';
 export class UploadComponent implements OnInit {
 
   files: FileItem[] = [];
-
+  overElement = false;
 
 
   constructor(public imageUploadService: ImageUploadService) { }
@@ -21,5 +21,4 @@ export class UploadComponent implements OnInit {
   uploadImages() {
   this.imageUploadService.uploadImagesFirebase(this.files); 
   }
-
 }

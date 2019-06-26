@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { PhotosComponent } from './components/photos/photos.component';
 import { UploadComponent } from './components/upload/upload.component';
 
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +20,11 @@ import { UploadComponent } from './components/upload/upload.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
   providers: [],
   bootstrap: [AppComponent]

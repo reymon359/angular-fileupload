@@ -65,8 +65,40 @@ export class NgDropFilesDirective {
     }
   }
 
+  // File validations
+  // ---------------------
+  // File can be uploaded if it has been dropped and is an image
+  private _fileCanBeUploaded(file: File): boolean {
+    if (!this._fileAlreadyDropped(file.name) && this._isImage(file.type)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Prevent that file does not open on browser
+  private _preventStop(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  // Check that files is not already on files
+  private _fileAlreadyDropped(fileName: string): boolean {
+    for (const file of this.files) {
+      if (file.fileName === fileName) {
+        console.log('The file ' + fileName + ' is already added');
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // Check if it is an image
+  private _isImage(fileType: string): boolean {
+    return (fileType === '' || fileType === undefined) ? false : fileType.startsWith('image');
+  }
 
 
- 
+
 }
 

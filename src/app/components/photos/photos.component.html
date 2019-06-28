@@ -1,8 +1,9 @@
 <div class="card-columns">
     <div class="card" *ngFor="let item of items | async">
         <img class="card-img" [src]="item.url" alt="Card image">
-        <footer>
-            <p>{{item.name}}</p>
-        </footer>
+        <div class="p-2">
+            <p class="card-text"><small class="text-muted">{{item.name}}</small></p>
+        </div>
+
     </div>
 </div>

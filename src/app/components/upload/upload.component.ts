@@ -21,4 +21,8 @@ export class UploadComponent implements OnInit {
   uploadImages() {
   this.imageUploadService.uploadImagesFirebase(this.files); 
   }
+
+  cleanFiles(){
+    this.files = [];
+  }
 }

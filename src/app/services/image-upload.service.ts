@@ -35,12 +35,12 @@ export class ImageUploadService {
         (error) => console.error('Error uploading', error),
         // If everything goes ok
         () => {
-          console.log('Image uploaded succesfully');
+          // console.log('Image uploaded succesfully');
           uploadTask.snapshot.ref.getDownloadURL().then(
             (onfullfilled: any) => {
-              console.log('(promise) the download url is:  ' + onfullfilled);
+              // console.log('(promise) the download url is:  ' + onfullfilled);
               item.url = onfullfilled;
-              console.log(item.url);
+              // console.log(item.url);
               item.uploading = false;
               this.saveImage({
                 name: item.fileName,

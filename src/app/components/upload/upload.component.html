@@ -27,7 +27,7 @@
                     <td [ngClass]="{'text-green': file.progress >=100}">{{file.fileName}}</td>
                     <td>{{file.file.size / 1024 / 1024 | number: '.2-2'}} MB</td>
                     <td>
-                        <div class="progress">
+                        <div class="progress" style="height: 20px;">
                             <div class="progress-bar" role="progressbar" [ngStyle]="{'width': file.progress + '%'}"></div>
                         </div>
                     </td>
